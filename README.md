@@ -131,27 +131,3 @@ Below are screenshots for various stages of the project:
    
 
 
-
-
-
-
-
-
-
-
-   
-
-   
-
-
-
-
-
-   
-
-
-
-6. **Jenkins Configuration:** ![Jenkins Configuration](path-to-screenshot)
-
-
-
