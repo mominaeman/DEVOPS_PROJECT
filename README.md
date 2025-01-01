@@ -3,6 +3,9 @@
 This project demonstrates the integration of DevOps practices by deploying a freelancing portfolio website. The project covers the complete workflow of version control, containerization, and automation using CI/CD pipelines.
 
 ---
+- **Developer:** Momina Eman
+- **ID:** 221106
+---
 
 ## Project Overview
 
