@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Momina Eman - Registration</h1>
+        <p>ID: 221106</p>
+    </header>
+
+    <main>
+        <section class="registration-form">
+            <h2>Register for Freelance Services</h2>
+            <form action="/register" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="service">Select Service:</label>
+                <select id="service" name="service" required>
+                    <option value="webDesign">Web Design</option>
+                    <option value="development">Development</option>
+                    <option value="consulting">Consulting</option>
+                </select><br><br>
+
+                <input type="submit" value="Register">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contact: mominaeman2003@gmail.com | Phone: 001222203303</p>
+        <p>© 2024 Momina Eman. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
