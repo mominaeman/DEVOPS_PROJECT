@@ -111,25 +111,60 @@ Below are screenshots for various stages of the project:
 
   
 4. **Docker integration with Jenkins:**
-   ## Simple Integration:
-   ![image](https://github.com/user-attachments/assets/e8353be8-5df2-4d0e-ad87-190b263af44b)
 
-   ![image](https://github.com/user-attachments/assets/061698d5-fc62-4395-a9ed-a13fbe0b6137)
+   ## Docker Script:
+   pipeline {
+    agent any
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git branch: 'frontend', url: 'https://github.com/mominaeman/DEVOPS_PROJECT.git'
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    def imageName = "momina299/website" // Use your Docker Hub username
+                    def imageTag = "latest"
 
-   ![image](https://github.com/user-attachments/assets/9c73027b-b1f0-4177-a3bd-badb837d1554)
+                    bat "docker build -t ${imageName}:${imageTag} ."
+                }
+            }
+        }
+        stage('Push to Docker Hub') {
+            steps {
+                withDockerRegistry([credentialsId: 'docker_credential', url: 'https://index.docker.io/v1/']) {
+                    script {
+                        def imageName = "momina299/website"
+                        def imageTag = "latest"
 
-   ![image](https://github.com/user-attachments/assets/6f99673c-2b12-4f4b-b375-3a66ae153b4d)
+                        bat "docker push ${imageName}:${imageTag}"
+                    }
+                }
+            }
+        }
+    }
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
+![image](https://github.com/user-attachments/assets/aae9351b-6c60-44c8-b91b-e82d3a44be73)
 
-   ## Integration through Maven:
-   ![image](https://github.com/user-attachments/assets/542b702c-78b1-45a7-b714-2bd69ae3f057)
+![image](https://github.com/user-attachments/assets/aae5943f-33df-4ae5-8d41-90c67f72782c)
 
-   ![image](https://github.com/user-attachments/assets/6c4fefb7-78be-4be2-87e7-2f1fc1bb4d87)
+![image](https://github.com/user-attachments/assets/627e2e6f-f8fe-4369-89f7-d1d2dd0cd413)
 
-   ![image](https://github.com/user-attachments/assets/c3265550-7123-44ea-b996-622dcc716285)
+![image](https://github.com/user-attachments/assets/78a0b858-8e93-486c-a1eb-ceb3d1977fec)
 
-   ![image](https://github.com/user-attachments/assets/e378e151-2ea8-41b4-a9ca-448de88910bb)
 
-   ![image](https://github.com/user-attachments/assets/7bfde089-1741-4e99-b2a8-13c49e1a825d)
+## Conclusion:
+This project successfully demonstrates the automation of the development lifecycle using DevOps principles. The integration of GitHub, Jenkins, and Docker provides a streamlined CI/CD pipeline that simplifies application deployment. This approach ensures faster delivery, consistent builds, and scalable deployment solutions, showcasing the power of modern DevOps practices.
+
+
+
+
 
    
 
